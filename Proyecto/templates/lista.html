@@ -1,0 +1,87 @@
+{% include ('cabecera.html') %}
+<br><br><br><br>
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lista de empleado </title>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/respon.css' ) }}">
+<script>
+$(document).ready(function(){
+  load_data();
+  function load_data(query)
+  {
+   $.ajax({
+    url:"/ajaxlivesearch",
+    method:"POST",
+    data:{search_text: query}, 
+    success:function(data)
+    {
+      $('#result').html(data);
+      $("#result").append(data.htmlresponse);
+    }
+   });
+  }
+  $('#search_text').keyup(function(){
+    var search = $(this).val();
+    if(search != ''){
+      load_data(search);
+    } else {
+      load_data();
+    }
+  });
+});
+</script>
+</head>
+<style>
+
+  body {
+      background: rgb(204, 202, 236)
+  }
+
+  .container.text-center {
+    background: #d5dceb;
+    max-width: 1200px;
+    margin: 100;
+    padding: 110;
+    border-radius: 40px;
+    
+   
+}
+h1.text-center.t{
+    padding: 15px 0;
+    margin-left: 25px;
+    font-weight: normal;
+    color: rgb(#1e2430)
+}
+
+  </style>
+<body>
+<div class="container text-center">
+
+<p></p>
+<h1 class="text-center t">Registro de Empleado</h1>
+            <div class="search-box">
+                <div class="row">
+                    <div class="col-md-2">
+                        <h5>Buscar</h5>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" name="search_text" id="search_text" class="form-control" placeholder="Search ">
+
+                    </div> 
+                </div>
+            </div>
+   <div id="result"></div>
+</div>
+
+
+</body>
+</html>
+
+{% include ('pie.html') %}

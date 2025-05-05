@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #ffffff;
+}
+
+.container{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: wrap ;
+    overflow: hidden;
+}
+
+
+.container::before{
+    content:'';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(rgb(255, 255, 255),rgb(255, 255, 255),rgb(255, 255, 255));
+    animation: Animate 5s linear infinite;
+}
+
+@keyframes Animate{
+    from{
+        transform: translateY(-100%);
+    }
+    to{
+        transform: translateY((100%));
+    }
+    
+}
+
+span{
+    position: relative;
+    display: block;
+    width: calc(10vw - 1px);
+    height:calc(10vw - 1px);
+    background-color:#ffffff;
+    transition: 1.5s;
+}
+
+span:hover{
+    background-color: rgb(46, 44, 80);
+    transition: 0s;
+}
+
+.superpuesta {
+    position: absolute;
+    top: 70%; /* Ajusta la posición vertical de la imagen */
+    left: 50%; /* Ajusta la posición horizontal de la imagen */
+    transform: translate(-50%, -50%); /* Centra la imagen */
+}
+.superpuesto {
+    position: fixed;
+    width: 28%;
+    top: 70%; /* Ajusta la posición vertical de la imagen */
+    left: 50%; /* Ajusta la posición horizontal de la imagen */
+    transform: translate(-50%, -50%); /* Centra la imagen */
+    margin-top: -12%;
+
+    
+}
+/*pantallas pequeñas */
+@media only screen and (max-width: 768px) {
+    .superpuesto {
+        width: 80%; /* Cambia el ancho para pantallas más pequeñas */
+    }
+}
+.salir {
+    position: fixed;
+    bottom: 70px; /* Ajusta la posición vertical de la parte inferior de la pantalla */
+    left: 50%; /* Centra el botón horizontalmente */
+    /* Centra el botón horizontalmente */
+    display: block;
+    border-radius: 13px;
+    padding: 11px 15px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: rgba(15, 9, 49, 0.77);
+}
+#contenedor {
+    background-color: #A8AAC5; /* Color de fondo para el contenido principal */
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px; /* Añade bordes redondeados al contenedor */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Añade una sombra suave al contenedor */
+}
+
+.center-checkbox {
+    margin-right: 500%;
+}
+
+.my-button {
+    padding: 10px 20px;
+    background-color: #1e2430;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .my-button:hover {
+    background-color: #cbe9a1;
+  }
+  
+  .my-button:active {
+    background-color: #92cf3e;
+  }
+

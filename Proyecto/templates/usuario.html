@@ -1,0 +1,64 @@
+{% include ('cabecerausuario.html') %}
+
+
+
+<!---marcar-->
+
+
+<div class="superpuesto">
+
+    <div id="contenedor">
+        
+
+        <form class="form-control" action="marcar-horas" method="post">
+            <h2 class="text-center">Marcar Horas</h2>
+          
+            <div class="form-group form-check">
+                
+                <input type="checkbox" class="form-check-input" id="marcarEntrada" name="marcarEntrada" onchange="BotonGuardar()">
+                
+                
+                <label class="form-check-label" for="marcarEntrada">Marcar Entrada</label>
+            </div>
+            
+            <div class="form-group form-check">
+                
+                <input style="align-items: center;" type="checkbox" class="form-check-input" id="marcarSalida" name="marcarSalida"onchange="BotonGuardar()">
+                
+
+                <label class="form-check-label" for="marcarSalida">Marcar Salida</label>
+            
+            </div>
+         
+        
+            <div class="text-center">
+            
+                <button type="submit" class="btn btn-success" id="botonGuardar" style="display: none;">Guardar</button>
+            </div>
+            
+        </form>
+    </div>
+    <script>
+        function BotonGuardar() {
+            var marcarEntrada = document.getElementById('marcarEntrada').checked;
+            var marcarSalida = document.getElementById('marcarSalida').checked;
+            var botonGuardar = document.getElementById('botonGuardar');
+
+            if (marcarEntrada && marcarSalida) {
+                document.getElementById('marcarSalida').checked = false;
+               
+            }
+          
+            
+            if (marcarEntrada || marcarSalida) {
+                botonGuardar.style.display = 'block';  
+            } else {
+                botonGuardar.style.display = 'none';  
+            }
+        }
+        
+        </script>
+</div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% include ('pie.html') %}

@@ -1,0 +1,182 @@
+{% include ('cabecera.html') %}
+<br><br><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styleR.css' ) }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/respon.css' ) }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+   
+
+</head>
+
+  
+
+</html>
+
+<style>
+
+  body {
+    align-items: center;
+    background: rgb(204, 202, 236)
+     
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    
+}
+
+</style>
+
+<body>
+<div class="container text-center">
+      <form action="/update/{{mostrar.id}}" method="POST" onsubmit="return validarFormulario()" >
+        <div class="col">
+          <div class="card card-body">
+        <input type="hidden" name="id" value="{{mostrar.id}}" ">
+        <form action="#" class="myform">
+
+
+        <div class="form-group">
+          <h1 class="text-center t">Editar Registro</h1>
+          <form class="form-control">
+           <div class="row align-items-start">
+              <div class="col">
+                <div class="form-group">
+                  <label for="campoNombre" class="text-center">Nombre</label>
+                  <input value="{{mostrar.nombre}}" type="text" name="txtNombre" class="form-control" id="campoNombre" placeholder="Ingresar Nombre" ">
+                </div> <br>
+          
+                  <div class="form-group">
+                    <label for="campoFechaNacimiento" class="text-center">Fecha de Nacimiento</label>
+                    <input value="{{mostrar.fecha_nacimiento}}" name="txtFechaNacimiento" type="date" class="form-control" id="campoFechaNacimiento" placeholder="Ingresar fecha nacimiento">
+                  </div> <br>
+          
+                  <div class="form-group">
+                    <label for="campoGenero" class="text-center">Género</label>
+                    <select value="{{mostrar.genero}}" type="text" name="txtGenero" class="form-control" id="campoGenero" placeholder="Ingresar genero">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Otro">Otro</option>
+                  </select>
+                  </div> <br>
+          
+                  <div class="form-group">
+                    <label for="campoDireccion" class="text-center">Dirección</label>
+                    <input value="{{mostrar.direccion}}" name="txtDireccion" type="text" class="form-control" id="campoDireccion" placeholder="Ingresar direccion">
+                  </div> <br>
+          
+                  <div class="form-group">
+                    <label for="campoTelefono" class="text-center">Teléfono</label>
+                    <input value="{{mostrar.telefono}}" name="txtTelefono" type="text" class="form-control" id="campoTelefono" placeholder="Ingresar telefono">
+                  </div> <br>
+          
+                </div>
+          
+                <div class="col">
+                  <div class="form-group">
+                    <label for="campoCorreo" class="text-center">Correo</label>
+                    <input value="{{mostrar.correo}}" name="txtCorreo" type="text" class="form-control" id="campoCorreo" placeholder="Ingresar correo">
+                  </div> <br>
+          
+                  <div class="form-group">
+                    <label for="campoFechaContrato" class="text-center">Fecha de Contrato</label>
+                    <input value="{{mostrar.fecha_contrato}}" name="txtFechaContrato" type="date" class="form-control" id="campoFechaContrato" placeholder="Ingrsar fecha de contrato">
+                  </div> <br>
+          
+                  <div class="form-group">
+                    <label for="campoUsuario" class="text-center">Usuario</label>
+                    <input value="{{mostrar.usuario}}" name="txtUsuario" type="text" class="form-control" id="campoUsuario" placeholder="Ingresar usuario">
+                  </div> <br>
+          
+                  <div class="form-group">
+                    <label for="campoContraseña" class="text-center">Contraseña</label>
+                    <input value="{{mostrar.contraseña}}" name="txtContraseña" type="password" class="form-control" id="campoContraseña" placeholder="Ingresar contraseña">
+                  </div> <br>
+
+                  <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                  
+                    <button onclick="goBack()">Salir </button>  <!-- salir-->
+
+
+                </div>
+          
+                  
+                  </div>
+                </div>
+                
+            </form>
+           
+
+
+
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      function validarFormulario() {
+          var nombreValor = document.getElementById("campoNombre").value.trim();
+          var fechaNacimientoValor = document.getElementById("campoFechaNacimiento").value.trim();
+          var GeneroValor = document.getElementById("campoGenero").value.trim();
+          var DireccionValor = document.getElementById("campoDireccion").value.trim();
+
+          var telefonoValor = document.getElementById("campoTelefono").value.trim();
+          var correoValor = document.getElementById("campoCorreo").value.trim();
+          var FechaContratoValor = document.getElementById("campoFechaContrato").value.trim();
+
+          var UsuarioValor= document.getElementById("campoUsuario").value.trim();
+          var ContraseñaValor = document.getElementById("campoContraseña").value.trim();
+
+  
+          if (nombreValor === "" || /^\s*$/.test(nombreValor)) {
+              alert("Por favor, ingresa un valor válido para el campo Nombre.");
+              return false;
+          }
+
+          if (DireccionValor === "" || /^\s*$/.test(DireccionValor)) {
+              alert("Por favor, ingresa un valor válido para el campo Direccion.");
+              return false;
+          }
+
+          if (DireccionValor === "" || /^\s*$/.test(DireccionValor)) {
+              alert("Por favor, ingresa un valor válido para el campo Direccion.");
+              return false;
+          }
+
+          if ( telefonoValor === "" || /^\s*$/.test( telefonoValor)) {
+              alert("Por favor, ingresa un valor válido para el campo Telefono.");
+              return false;
+          }
+
+          if ( correoValor === "" || /^\s*$/.test( correoValor)) {
+              alert("Por favor, ingresa un valor válido para el campo Correo.");
+              return false;
+          }
+
+          if ( UsuarioValor === "" || /^\s*$/.test( UsuarioValor)) {
+              alert("Por favor, ingresa un valor válido para el campo Usuario.");
+              return false;
+          }
+
+          if ( ContraseñaValor === "" || /^\s*$/.test( ContraseñaValor)) {
+              alert("Por favor, ingresa un valor válido para el campo Contraseña.");
+              return false;
+          }
+  
+          
+          return true;
+      }
+  </script>
+
+  </body>
+{% include ('pie.html') %}

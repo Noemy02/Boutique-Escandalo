@@ -1,0 +1,271 @@
+{% include ('cabecera.html') %}
+<br><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css' ) }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/respon.css' ) }}">
+</head>
+
+<body>
+
+    
+    <center>
+        <h1 style="color: #000;" >𝓑𝓲𝓮𝓷𝓿𝓮𝓷𝓲𝓭𝓸 𝓐𝓭𝓶𝓲𝓷 </h1>
+      </center>
+      
+
+    <div class= "container">
+
+       
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+
+    </div>
+
+   
+    
+
+
+
+    <!---mensaje personalizado -->
+    
+    {% if mensaje2 %}
+<div class="alert alert-success" id="alerta" role="alert">
+    {{ mensaje2 }}
+</div>
+<script>
+    setTimeout(function() {
+        var alerta = document.getElementById('alerta');
+        alerta.style.display = 'none';
+    }, 3000);
+</script>
+{% endif %}
+
+<!---->
+<br><br>
+
+<br><br>
+
+<div class="superpuesta">
+    <div id="contenedor">
+        <br><br>
+
+    <h1 style="color: Black;;">Mis Ideas</h1>
+    <p style="color: Black;;">Usa el siguiente campo para anotar tus ideas:</p>
+    <textarea id="ideas" rows="4" cols="50"></textarea>
+
+    <p style="color: Black;;">¡Escribe tus ideas aquí!</p>
+
+    <p>
+        <button class="my-button" onclick="guardarIdea()" style="color:Black;;">Guardar Idea</button>
+    </p>
+
+    <div id="ideasGuardadas">
+        <h2 style="color: Black;;">Ideas Guardadas</h2>
+        <ul id="listaIdeas"></ul>
+    </div>
+
+    <script>
+        function guardarIdea() {
+            var idea = document.getElementById("ideas").value;
+            if (idea.trim() === "") {
+                alert("Por favor, ingresa una idea antes de guardar.");
+            } else {
+                var listaIdeas = document.getElementById("listaIdeas");
+                var nuevaIdea = document.createElement("li");
+                nuevaIdea.textContent = idea;
+                listaIdeas.appendChild(nuevaIdea);
+                document.getElementById("ideas").value = "";
+            }
+        }
+    </script>
+    </div>
+</div>
+
+
+    
+</body>
+</html>
+<!--{% include ('pie.html') %}-->

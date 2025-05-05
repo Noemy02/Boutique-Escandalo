@@ -1,0 +1,70 @@
+{% include ('cabecera.html') %}
+<br><br><br><br>
+
+
+<style>
+
+  body {
+      background: rgb(204, 202, 236)
+  }
+
+  .container.my-4 {
+    background: #d5dceb;
+    max-width: 1200px;
+    margin: 100;
+    padding: 110;
+    border-radius: 40px;
+    
+   
+}
+h1.text-center.t{
+    padding: 15px 0;
+    margin-left: 25px;
+    font-weight: normal;
+    color: rgb(#1e2430)
+}
+
+  </style>
+
+
+<body>
+<div class="container my-4">
+  <p></p>
+<h1 class="text-center t">Horario de Empleado</h1>
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nombre del Empleado</th>
+              <th>Fecha</th>
+              <th>Entrada</th>
+              <th>Salida</th>
+              <th>Horas Totales</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in registros %}
+              <tr>
+                <td>{{ row.empleado_nombre }}</td>
+                <td>{{ row.fecha }}</td>
+                <td>{{ row.hora_entrada }}</td>
+                <td>{{ row.hora_salida }}</td>
+                <td>{{ row.horas_totales }}</td>
+                <td>
+                 
+                  
+              </form>
+            
+                        </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

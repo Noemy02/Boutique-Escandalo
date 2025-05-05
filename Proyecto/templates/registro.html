@@ -1,0 +1,183 @@
+{% include ('cabecera.html') %}
+<br><br><br>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleR.css' ) }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/respon.css' ) }}">
+</head>    
+<br><br>
+<!----formulario para registrar-->
+<style>
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+</style>
+
+<div class="table-responsive">
+<div class="container text-center">
+    <form class="form-control" action="crear-registro" method="post">
+
+        <h1 class="text-center t">Registro de Empleado</h1>
+        
+        <div class="row align-items-start">
+        <script>
+            function validar_Formulario() {
+
+                var nombre = document.getElementById("campoNombre").value.trim();
+                var correo = document.getElementById("campoCorreo").value.trim();
+                var fechaNacimiento = document.getElementById("campoFechaNacimiento").value.trim();
+                var genero = document.getElementById("campoGenero").value.trim();
+                var direccion = document.getElementById("campoDireccion").value.trim();
+                var telefono = document.getElementById("campoTelefono").value.trim();
+                var fechaContrato = document.getElementById("campoFechaContrato").value.trim();
+                var usuario = document.getElementById("campoUsuario").value.trim();
+                var contraseña = document.getElementById("campocontraseña").value.trim();
+        
+
+                if (nombre === "" || /^\s/.test(nombre)) {
+            mostrarError("errorNombre");
+            return;
+            }
+                if (correo === "" || /^\s/.test(correo)) {
+            mostrarError("errorCorreo");
+            return;
+            }
+                if (fechaNacimiento === "" || /^\s/.test(fechaNacimiento)) {
+            mostrarError("errorFechaNacimiento");
+            return;
+            }
+                if (genero === "" || /^\s/.test(genero)) {
+            mostrarError("errorGenero");
+            return;
+            }
+                if (direccion === "" || /^\s/.test(direccion)) {
+            mostrarError("errorDireccion");
+            return;
+            }
+                if (telefono === "" || /^\s/.test(telefono)) {
+            mostrarError("errorTelefono");
+            return;
+            }
+                if (fechaContrato === "" || /^\s/.test(fechaContrato)) {
+            mostrarError("errorFechaContrato");
+            return;
+            }
+                if (usuario === "" || /^\s/.test(usuario)) {
+            mostrarError("errorUsuario");
+            return;
+            }
+                if (contraseña === "" || /^\s/.test(contraseña)) {
+            mostrarError("errorContraseña");
+            return;
+            }
+        
+                document.forms[0].submit();
+            }
+        
+            function mostrarError(idError) {
+        var mensajeError = document.getElementById(idError);
+        mensajeError.style.display = "block";
+
+        setTimeout(function () {
+            mensajeError.style.display = "none";
+        }, 3000);
+    }
+        
+            function sin_espacio(elemento) {
+                elemento.value = elemento.value.trim();
+            }
+        </script>
+        
+      <div class="col">
+        <div class="form-group">
+            <label for="campoNombre" class="text-center">Nombre</label>
+            <input required="required"  type="text" class="form-control" id="campoNombre"  aria-describedby="errorNombre" placeholder="Ingrese su Nombre" name="txtNombre">
+            <small id="errorNombre" class="form-text text-danger" style="display:none;">¡El campo Nombre es obligatorio!</small>
+           </div> <br>
+      
+          <div class="form-group">
+           <label for="campoCorreo" class="text-center">Correo</label>
+           <input required="required" type="email" class="form-control" id="campoCorreo" aria-describedby="errorCorreo" placeholder="Ingrese su Correo" name="txtCorreo">
+           <small id="errorCorreo" class="form-text text-danger" style="display:none;">¡El campo Correo es obligatorio!</small>
+          </div> <br>
+      
+          <div class="form-group">
+            <label for="campoFechaNacimiento" class="text-center">Fecha de Nacimiento</label>
+            <input required="required" type="date" class="form-control" id="campoFechaNacimiento" aria-describedby="errorFechaNacimiento" name="txtFechaNacimiento">
+            <small id="errorFechaNacimiento" class="form-text text-danger" style="display:none;">¡El campo Fecha de Nacimiento es obligatorio!</small>
+        </div> <br>
+        
+        <div class="form-group">
+            <label for="campoGenero" class="text-center">Género</label>
+            <select required="required" class="form-control" id="campoGenero" aria-describedby="errorGenero" name="txtGenero">
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Otro">Otro</option>
+            </select>
+            <small id="errorGenero" class="form-text text-danger" style="display:none;">¡El campo Género es obligatorio!</small>
+        </div> <br>
+        
+        <div class="form-group">
+            <label for="campoDireccion" class="text-center">Dirección</label>
+            <input required="required" type="text" class="form-control" id="campoDireccion" aria-describedby="errorDireccion" placeholder="Ingrese su Dirección" name="txtDireccion">
+            <small id="errorDireccion" class="form-text text-danger" style="display:none;">¡El campo Dirección es obligatorio!</small>
+        </div> <br>
+        
+        <div class="form-group">
+            <label for="campoTelefono" class="text-center">Teléfono</label>
+            <input onkeypress='return event.charCode >= 48 && event.charCode <= 57' required="required" type="tel" class="form-control" id="campoTelefono" aria-describedby="errorTelefono" placeholder="Ingrese su Teléfono" name="txtTelefono">
+            <small id="errorTelefono" class="form-text text-danger" style="display:none;">¡El campo Teléfono es obligatorio!</small>
+        </div> <br>
+        
+        <div class="form-group">
+            <label for="campoFechaContrato" class="text-center">Fecha de Contrato</label>
+            <input  required="required" type="date" class="form-control" id="campoFechaContrato" aria-describedby="errorFechaContrato" name="txtFechaContrato">
+            <small id="errorFechaContrato" class="form-text text-danger" style="display:none;">¡El campo Fecha de Contrato es obligatorio!</small>
+        </div> <br>
+       
+      </div>
+  
+   
+      <!------------------------------>
+      <div class="col">
+        <form class="form-control" >
+        <div class="form-group ">
+            
+
+            <label for="campoUsuario" class="text-center">Usuario</label>
+                  <input required="required" type="text" class="form-control" id="campoUsuario" aria-describedby="errorUsuario" placeholder="Ingrese su Usuario" name="txtUsuario">
+                  <small id="errorUsuario" class="form-text text-danger" style="display:none;">¡El campo Usuario es obligatorio!</small>
+              </div> <br>
+        
+              <div class="form-group">
+                  <label for="campocontraseña" class="text-center">Contraseña</label>
+                  <input required="required"  type="password" class="form-control" id="campocontraseña" placeholder="Ingrese su Contraseña" name="txtContraseña">
+                  <small id="errorContraseña" class="form-text text-danger" style="display:none;">¡El campo Contraseña es obligatorio!</small>
+          </div> <br>
+          <div class="form-check">
+
+          </div>
+          <div class="text-center">
+          <button type="button" onclick="validar_Formulario()" class="btn btn-success">Registrar</button>
+         
+          
+         
+        </div>
+
+    </div>
+</form>
+</form>
+
+
+</div>
+</div>
+</div>
+  
+{% include ('pie.html') %}
+
+<!-------------->
+

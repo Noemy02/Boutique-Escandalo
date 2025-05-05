@@ -1,0 +1,53 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/respon.css' ) }}">
+<div class="float-none">{{numrows}} Empleados encontrados</div>
+
+
+
+<div class="table-responsive">  <!-- Tabla respon-->
+<div class="container-xxl">
+  <table class="table table-striped custab">  
+    <thead>
+      <tr>
+        <th>nombre</th>
+        <th>genero</th>
+        <th>fecha_nacimiento</th>
+        <th>direccion</th>
+        <th>telefono</th>
+        <th>correo</th>
+        <th>fecha_contrato</th>
+        <th>usuario</th>
+        <th>contraseña</th>
+        <th>accion</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in employee %} 
+        {% if row.id_rol == 2 %}  <!-- para mostrar solo los empleados-->
+          <tr>
+            <td>{{row.nombre}}</td>
+            <td>{{row.genero}}</td>
+            <td>{{row.fecha_nacimiento}}</td>
+            <td>{{row.direccion}}</td>
+            <td>{{row.telefono}}</td>
+            <td>{{row.correo}}</td>
+            <td>{{row.fecha_contrato}}</td>
+            <td>{{row.usuario}}</td>
+            <td>{{row.contraseña}}</td>
+            <td>
+              <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                <a href="/edit/{{row.id}}" class="btn btn-warning">editar</a>
+                <form action="/eliminar-empleado/{{ row.id }}" method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este empleado?');">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <button type="submit" class="btn btn-danger">eliminar</button>                                                              
+                </form>
+              </div>
+            </td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+</div>
